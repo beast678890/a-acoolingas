@@ -1,0 +1,9 @@
+node_modules
+.next
+.env.local
+.env.*.local
+dist
+coverage
+/public/uploads
+.DS_Store
+.vscode

@@ -1,0 +1,1 @@
+Components folder: Header, Footer, SEO, and reusable UI elements. Use Tailwind and ensure accessible semantics and keyboard focus states.

@@ -1,0 +1,1 @@
+Sanity schemas should include: products, team, news, resources, distributors, industries. Add localized fields using sanity-plugin-intl or native i18n. Export dataset as .tar.gz to be provided separately.

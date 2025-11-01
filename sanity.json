@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "project": {
+    "name": "aacoolings-site-studio",
+    "basePath": "/studio"
+  },
+  "api": {
+    "projectId": "__REPLACE_WITH_PROJECT_ID__",
+    "dataset": "production"
+  },
+  "plugins": [],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./sanity/schemas/index.js"
+    }
+  ]
+}
