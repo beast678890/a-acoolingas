@@ -7,9 +7,22 @@
   SANITY_PROJECT_ID = "__REPLACE_WITH_PROJECT_ID__"
   SANITY_DATASET = "production"
 
-[headers]
+[[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.segment.com; img-src 'self' data: https://*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+
+[redirects]
+  # Legacy redirects and SEO-preserved rules
+  [[redirects]]
+    from = "/old-products/*"
+    to = "/products/:splat"
+    status = 301
+
+  [[redirects]]
+    from = "/studio"
+    to = "/studio/"
+    status = 200
