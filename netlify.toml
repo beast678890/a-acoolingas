@@ -15,14 +15,13 @@
     Referrer-Policy = "no-referrer-when-downgrade"
     Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.segment.com; img-src 'self' data: https://*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
 
-[redirects]
-  # Legacy redirects and SEO-preserved rules
-  [[redirects]]
-    from = "/old-products/*"
-    to = "/products/:splat"
-    status = 301
+# Legacy redirects and SEO-preserved rules
+[[redirects]]
+  from = "/old-products/*"
+  to = "/products/:splat"
+  status = 301
 
-  [[redirects]]
-    from = "/studio"
-    to = "/studio/"
-    status = 200
+[[redirects]]
+  from = "/studio"
+  to = "/studio/"
+  status = 200
