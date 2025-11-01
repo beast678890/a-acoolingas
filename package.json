@@ -17,9 +17,9 @@
     "tailwindcss": "^3.4.7",
     "framer-motion": "^10.0.0",
     "zod": "^3.21.4",
-    "clsx": "^1.2.1",
-    
-    "algoliasearch": "^4.17.0"
+  "clsx": "^1.2.1",
+  "next-sanity": "^11.6.3",
+  "algoliasearch": "^4.17.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
