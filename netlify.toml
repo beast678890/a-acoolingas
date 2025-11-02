@@ -1,10 +1,8 @@
 [build]
   command = "npm run build"
-  # Do NOT publish the internal .next directory — use Netlify's Next.js plugin which
-  # prepares the proper deploy output (functions & assets). The plugin will manage
-  # the publish directory. Keep this value as a conventional output folder used by
-  # the plugin.
-  publish = "netlify"
+  # Let the Netlify Next.js plugin manage the publish directory and functions
+  # output. Do not hardcode `publish` here (it caused the plugin to look for a
+  # non-existent folder during the onBuild step).
 
 [context.production.environment]
   NEXT_PUBLIC_SITE_URL = "https://aacoolings.com"
