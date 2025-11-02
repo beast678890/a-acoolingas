@@ -41,8 +41,17 @@ export default async function ProductPage({ params }: Props) {
                 <div className="w-full h-56 bg-gray-100" />
               )}
               <div className="prose max-w-none">{/* Render portable text here when wired to Sanity */}
-                {product.description ? product.description[0]?.children?.[0]?.text : null}
+                {Array.isArray(product.description)
+                  ? product.description.map((blk: any, i: number) => (
+                      <p key={i}>{blk?.children?.map((c: any) => c.text).join('')}</p>
+                    ))
+                  : product.description || product.excerpt || 'No description available.'}
               </div>
+              {product.sdsUrl && (
+                <div className="mt-4">
+                  <a href={product.sdsUrl} target="_blank" rel="noreferrer" className="inline-block bg-[color:var(--navy)] text-white px-4 py-2 rounded">Download SDS</a>
+                </div>
+              )}
             </div>
           </div>
           <aside className="p-4 border rounded">
@@ -51,7 +60,7 @@ export default async function ProductPage({ params }: Props) {
             <form className="mt-4">
               <label className="block text-sm">Quantity</label>
               <input className="w-full border px-2 py-2 rounded mt-1" />
-              <button className="mt-4 w-full bg-arctic text-navy px-4 py-2 rounded">Request Quote</button>
+              <button className="mt-4 w-full bg-[color:var(--accent)] text-white px-4 py-2 rounded">Request Quote</button>
             </form>
           </aside>
         </div>

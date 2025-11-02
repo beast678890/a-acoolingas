@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --navy: #03153D;
-  --arctic: #00AEEF;
-  --steel: #5A6777;
-  --safety: #FF6C0A;
+  /* Refreshed industrial palette: deeper navy, stronger accent, neutral steel */
+  --navy: #0B2540; /* deep industrial navy */
+  --accent: #0077B6; /* strong, professional blue accent */
+  --steel: #58606B; /* neutral gray-steel */
+  --safety: #FF6C0A; /* safety orange retained for CTAs */
+  --muted: #F6F7F9;
 }
 
 html, body, #__next {
