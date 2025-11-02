@@ -4,10 +4,12 @@ import { getProductBySlug } from '../../../lib/sanityClient'
 
 export const revalidate = 60 // ISR: revalidate every 60 seconds
 
-type Props = { params: { slug: string } }
+type Props = { params?: any; searchParams?: any }
 
 export default async function ProductPage({ params }: Props) {
-  const { slug } = params
+  // Next 15 may pass `params` as a Promise; resolve defensively
+  const resolvedParams = await Promise.resolve(params)
+  const slug: string | undefined = resolvedParams?.slug
   let product = null
   try {
     product = await getProductBySlug(slug)
@@ -19,14 +21,14 @@ export default async function ProductPage({ params }: Props) {
     return (
       <div className="max-w-4xl mx-auto p-6">
         <h1 className="font-heading text-2xl">Product not found</h1>
-        <p className="text-steel mt-2">No product with slug {slug} was found.</p>
+    <p className="text-steel mt-2">No product with slug {slug} was found.</p>
       </div>
     )
   }
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <SEO title={`${product.title} — A&A Cooling`} description={product.excerpt || ''} />
+  <SEO title={`${product.title} — A&A Cooling`} description={product.excerpt || ''} />
       <h1 className="font-heading text-3xl">{product.title}</h1>
       <p className="text-steel">SKU: {product.sku} • In stock: {product.inventory ?? '—'}</p>
       <section className="mt-6">
